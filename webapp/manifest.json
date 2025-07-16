@@ -1,0 +1,137 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "ZEHSM_PORTAL",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"ZODATA_EHSM_PM_SRV": {
+				"uri": "/sap/opu/odata/sap/ZODATA_EHSM_PM_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "ZEHSM_PORTAL.view.APP",
+			"type": "XML",
+			"id":"root"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZEHSM_PORTAL.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "ZEHSM_PORTAL.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"async": true
+			},
+      "routes": [
+        {
+          "pattern": "",
+          "name": "Login",
+          "target": "Login"
+        },
+        {
+          "pattern": "home",
+          "name": "Home",
+          "target": "Home"
+        },
+        {
+          "pattern": "incident",
+          "name": "Incident",
+          "target": "Incident"
+        },
+        {
+          "pattern": "risk",
+          "name": "Risk",
+          "target": "Risk"
+        }
+      ],
+      "targets": {
+        "Login": {
+          "viewName": "Login"
+        },
+        "Home": {
+          "viewName": "Home"
+        },
+        "Incident": {
+          "viewName": "Incident"
+        },
+        "Risk": {
+          "viewName": "Risk"
+        },
+        
+        "notFound": {
+          "viewName": "NotFound",
+          "viewId": "notFound",
+          "transition": "show"
+        }
+      }
+    },
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,53 @@
+<mvc:View
+  controllerName="ZEHSM_PORTAL.controller.Home"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  displayBlock="true">
+
+  <Page title="EHSM DASHBOARD" >
+    <VBox class="sapUiSmallMargin">
+
+      <!-- ===== Header Bar ===== -->
+      <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiMediumMarginBottom header-bar">
+		<Text text="{userModel>/name}" class="sapUiTinyMarginEnd sapUiTinyMarginStart" />
+          <Text text="{path: 'userModel>/now', type: 'sap.ui.model.type.Date', formatOptions: { style: 'long' }}" class="sapUiTinyMarginEnd" />
+          
+        <HBox alignItems="Center" class="sapUiSmallMarginEnd" renderType="Bare" spacing="Medium">
+          <Button icon="sap-icon://log" tooltip="Logout" type="Reject" press="onLogout" />
+        </HBox>
+      </HBox>
+
+      <!-- ===== Navigation Tiles ===== -->
+      <FlexBox
+        wrap="Wrap"
+        justifyContent="Center"
+        class="sapUiSmallMargin"
+        direction="Row">
+
+        <GenericTile header="Incident Management" press="onNavigate" class="sapUiSmallMargin">
+          <customData>
+            <core:CustomData key="route" value="Incident" />
+          </customData>
+          <tileContent>
+            <TileContent>
+              <ImageContent src="sap-icon://multi-select" />
+            </TileContent>
+          </tileContent>
+        </GenericTile>
+
+        <GenericTile header="Risk Assessment" press="onNavigate" class="sapUiSmallMargin">
+          <customData>
+            <core:CustomData key="route" value="Risk" />
+          </customData>
+          <tileContent>
+            <TileContent>
+              <ImageContent src="sap-icon://multi-select" />
+            </TileContent>
+          </tileContent>
+        </GenericTile>
+
+      </FlexBox>
+    </VBox>
+  </Page>
+</mvc:View>

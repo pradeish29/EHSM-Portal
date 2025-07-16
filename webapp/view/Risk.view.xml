@@ -1,0 +1,54 @@
+<mvc:View
+  controllerName="ZEHSM_PORTAL.controller.Risk"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+
+  <Page title="Risk Assessment List" showNavButton="true" navButtonPress="onNavBack">
+    <content>
+      <VBox class="sapUiSmallMargin">
+        <HBox alignItems="Center" justifyContent="SpaceBetween" class="sapUiTinyMarginBottom">
+          <SearchField id="searchField" width="300px" placeholder="Search..." search="onSearch" />
+          <ComboBox
+            id="roleFilterCombo"
+            width="200px"
+            placeholder="Filter by Role"
+            selectionChange="onRoleFilterChange"
+            items="{roleFilterModel>/}">
+            <core:Item key="{roleFilterModel>key}" text="{roleFilterModel>text}" />
+          </ComboBox>
+        </HBox>
+
+        <Table
+          id="riskTable"
+          items="{riskModel>/results}"
+          growing="true"
+          growingThreshold="10"
+          growingScrollToLoad="true">
+
+          <columns>
+            <Column><Text text="Risk Key Ref"/></Column>
+            <Column><Text text="Team Member"/></Column>
+            <Column><Text text="Role"/></Column>
+            <Column><Text text="Regulation"/></Column>
+            <Column><Text text="Created On"/></Column>
+            <Column><Text text="Created By"/></Column>
+          </columns>
+
+          <items>
+            <ColumnListItem>
+              <cells>
+                <Text text="{riskModel>RiskKeyRef}"/>
+                <Text text="{riskModel>AsmtTeamMember}"/>
+                <Text text="{riskModel>Role}"/>
+                <Text text="{riskModel>Regulation}"/>
+                <Text text="{path: 'riskModel>CreatedOnAt', formatter: '.formatDate'}"/>
+                <Text text="{riskModel>CreatedBy}"/>
+              </cells>
+            </ColumnListItem>
+          </items>
+        </Table>
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>

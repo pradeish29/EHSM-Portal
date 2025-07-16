@@ -1,0 +1,14 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+          xmlns="sap.m"
+          controllerName="ZEHSM_PORTAL.controller.Login">
+  <Page title="EHSM Portal Login">
+    <content>
+      <VBox class="sapUiSmallMargin" alignItems="Center" justifyContent="Center">
+        <Input id="empIdInput" placeholder="Employee ID" width="300px" />
+        <Input id="passwordInput" placeholder="Password" type="Password" width="300px"  />
+        <Button text="Login" press="onLoginPress" type="Emphasized" />
+        <Text id="messageText" text="" visible="false" />
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>

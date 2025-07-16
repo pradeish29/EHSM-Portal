@@ -1,0 +1,8 @@
+<mvc:View controllerName="ZEHSM_PORTAL.controller.APP"
+xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	displayBlock="true">
+
+	<App id="app"/>
+	
+</mvc:View>

@@ -1,0 +1,46 @@
+<mvc:View controllerName="ZEHSM_PORTAL.controller.Incident" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page title="Incident List" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<!-- Filter Dropdown -->
+				<HBox class="sapUiTinyMarginBottom" alignItems="Center">
+					<Text text="Filter by Status:" class="sapUiTinyMarginEnd"/>
+					<Select id="incidentStatusFilter" change="onFilterChange">
+						<items>
+							<core:Item key="" text="All"/>
+							<core:Item key="NEW" text="New"/>
+							<core:Item key="REVIEW COMPLETE" text="REVIEW COMPLETE"/>
+							<core:Item key="CLOSED" text="Closed"/>
+							<core:Item key="VOID" text="Void"/>
+						</items>
+					</Select>
+				</HBox>
+				<!-- Table -->
+				<Table id="incidentTable" items="{incidentModel>/results}" growing="true" growingThreshold="10" growingScrollToLoad="true">
+					<columns>
+						<Column><Text text="Incident ID"/></Column>
+						<Column><Text text="Title"/></Column>
+						<Column><Text text="Location"/></Column>
+						<Column><Text text="Category"/></Column>
+						<Column><Text text="Created On"/></Column>
+						<Column><Text text="Created By"/></Column>
+						<Column><Text text="Status"/></Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{incidentModel>IncidentId}"/>
+								<Text text="{incidentModel>Title}"/>
+								<Text text="{incidentModel>Location}"/>
+								<Text text="{incidentModel>IncidentGrp}"/>
+								<Text text="{path: 'incidentModel>CreatedOn', formatter: '.formatDate'}"/>
+								<Text text="{incidentModel>CreatedBy}"/>
+								<ObjectStatus text="{incidentModel>IncRecStatus}" state="{path: 'incidentModel>IncRecStatus', formatter: '.formatStatusColor'}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>
